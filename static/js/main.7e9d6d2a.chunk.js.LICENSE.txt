@@ -1,5 +1,5 @@
 /**
- * @license
+ * @license Interblock - the blockchain of the Dreamcatcher network
 
     Interblock - the blockchain of the Dreamcatcher network
 
