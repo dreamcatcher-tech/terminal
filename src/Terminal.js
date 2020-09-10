@@ -10,7 +10,6 @@ import 'xterm/css/xterm.css'
 const mockStdin = require('mock-stdin').stdin
 
 const debug = debugFactory(`terminal`)
-const shell = require('@dreamcatcher-tech/dos')
 
 const getMockStdin = () => {
   const previousStdin = process.stdin
@@ -62,20 +61,18 @@ const TerminalContainer = (props) => {
     })
     xtermRef.current = terminal
     window.addEventListener('resize', () => fitAddon.fit())
+    process.stdout = terminal
+    process.stdin = terminal.stdin
+    process.stderr = terminal
   }, [])
 
   const [, blockchain] = useBlockchain()
 
-  useEffect(() => {
-    debug(`connecting blockchain to terminal`)
-    const terminal = xtermRef.current
-    process.stdout = terminal
-    process.stdin = terminal.stdin
-    process.stderr = terminal
-    // TODO pass in std* for containment
-    const emptyArgs = []
-    shell(emptyArgs, { blockchain })
-  }, [blockchain])
+  //   useEffect(() => {
+  //     // TODO pass in std* for isolation ?
+  //     const emptyArgs = []
+  //     shell(emptyArgs, { blockchain })
+  //   }, [])
 
   return <div id="xterm-container" {...props}></div>
 }
