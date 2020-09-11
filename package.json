@@ -21,7 +21,7 @@
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start --no-cache",
-    "build": "react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test --no-cache"
   },
   "eslintConfig": {
@@ -39,7 +39,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://evil-liskov-org.github.io/terminal",
+  "homepage": ".",
   "prettier": {
     "trailingComma": "es5",
     "tabWidth": 2,

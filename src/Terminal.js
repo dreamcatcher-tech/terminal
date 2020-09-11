@@ -42,7 +42,12 @@ const TerminalContainer = (props) => {
 
   useEffect(() => {
     debug(`opening terminal`)
-    const terminal = new Terminal({ cursorBlink: true, convertEol: true })
+    const terminal = new Terminal({
+      cursorBlink: true,
+      cursorStyle: 'underline',
+      convertEol: true,
+      rendererType: 'dom', // required for TorBrowser
+    })
     const fitAddon = new FitAddon()
     terminal.loadAddon(fitAddon)
     terminal.open(document.getElementById('xterm-container'))
