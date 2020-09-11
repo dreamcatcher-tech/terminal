@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "./static/css/main.ec4874b8.chunk.css",
-    "main.js": "./static/js/main.f5b5da2b.chunk.js",
+    "main.css": "./static/css/main.24a8ee3b.chunk.css",
+    "main.js": "./static/js/main.efc57a33.chunk.js",
     "runtime-main.js": "./static/js/runtime-main.72c0fbfe.js",
     "static/css/2.40a22f57.chunk.css": "./static/css/2.40a22f57.chunk.css",
     "static/js/2.54b5f58f.chunk.js": "./static/js/2.54b5f58f.chunk.js",
     "index.html": "./index.html",
-    "precache-manifest.a066cc9a4c4a19c241cab792f078160c.js": "./precache-manifest.a066cc9a4c4a19c241cab792f078160c.js",
+    "precache-manifest.f4afdd729847b01e78c5ef569854a61f.js": "./precache-manifest.f4afdd729847b01e78c5ef569854a61f.js",
     "service-worker.js": "./service-worker.js",
     "static/js/2.54b5f58f.chunk.js.LICENSE.txt": "./static/js/2.54b5f58f.chunk.js.LICENSE.txt",
-    "static/js/main.f5b5da2b.chunk.js.LICENSE.txt": "./static/js/main.f5b5da2b.chunk.js.LICENSE.txt"
+    "static/js/main.efc57a33.chunk.js.LICENSE.txt": "./static/js/main.efc57a33.chunk.js.LICENSE.txt",
+    "static/media/index.css": "./static/media/NotoColorEmoji.62543279.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.72c0fbfe.js",
     "static/css/2.40a22f57.chunk.css",
     "static/js/2.54b5f58f.chunk.js",
-    "static/css/main.ec4874b8.chunk.css",
-    "static/js/main.f5b5da2b.chunk.js"
+    "static/css/main.24a8ee3b.chunk.css",
+    "static/js/main.efc57a33.chunk.js"
   ]
 }

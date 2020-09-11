@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "48167a509345e6e558c8855de25cb23f",
+    "revision": "265afec21e0f3c6dca7c9fe0b623ae4c",
     "url": "./index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/css/2.40a22f57.chunk.css"
   },
   {
-    "revision": "75f4194f99a2bfd75fc5",
-    "url": "./static/css/main.ec4874b8.chunk.css"
+    "revision": "9b86debcee2851692d7a",
+    "url": "./static/css/main.24a8ee3b.chunk.css"
   },
   {
     "revision": "b203b9c47bdd7c4e84b1",
@@ -20,15 +20,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/js/2.54b5f58f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "75f4194f99a2bfd75fc5",
-    "url": "./static/js/main.f5b5da2b.chunk.js"
+    "revision": "9b86debcee2851692d7a",
+    "url": "./static/js/main.efc57a33.chunk.js"
   },
   {
     "revision": "dcc739e15368ee2ed841935b64eba5a7",
-    "url": "./static/js/main.f5b5da2b.chunk.js.LICENSE.txt"
+    "url": "./static/js/main.efc57a33.chunk.js.LICENSE.txt"
   },
   {
     "revision": "63af0e06d852bbc0a21a",
     "url": "./static/js/runtime-main.72c0fbfe.js"
+  },
+  {
+    "revision": "6254327940d27560ce4487ea9a4cb39d",
+    "url": "./static/media/NotoColorEmoji.62543279.ttf"
   }
 ]);
