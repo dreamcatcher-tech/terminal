@@ -22,7 +22,11 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start --no-cache",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
-    "test": "react-scripts test --no-cache"
+    "test": "react-scripts test --no-cache",
+    "aws-full": "aws-deploy full",
+    "aws-lambda": "aws-deploy lambda",
+    "aws-test": "aws-deploy test",
+    "aws-dev": "aws-deploy dev test"
   },
   "eslintConfig": {
     "extends": "react-app"
