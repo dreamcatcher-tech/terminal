@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "./static/css/main.3d01d39e.chunk.css",
-    "main.js": "./static/js/main.502cc098.chunk.js",
+    "main.css": "./static/css/main.2ff89984.chunk.css",
+    "main.js": "./static/js/main.9622b258.chunk.js",
     "runtime-main.js": "./static/js/runtime-main.72c0fbfe.js",
     "static/css/2.40a22f57.chunk.css": "./static/css/2.40a22f57.chunk.css",
     "static/js/2.9dcadbe9.chunk.js": "./static/js/2.9dcadbe9.chunk.js",
     "index.html": "./index.html",
-    "precache-manifest.f363875457302da21270026deecf065a.js": "./precache-manifest.f363875457302da21270026deecf065a.js",
+    "precache-manifest.ca7c34a00676ad77fe7e6e686333d08b.js": "./precache-manifest.ca7c34a00676ad77fe7e6e686333d08b.js",
     "service-worker.js": "./service-worker.js",
     "static/js/2.9dcadbe9.chunk.js.LICENSE.txt": "./static/js/2.9dcadbe9.chunk.js.LICENSE.txt",
-    "static/js/main.502cc098.chunk.js.LICENSE.txt": "./static/js/main.502cc098.chunk.js.LICENSE.txt",
-    "static/media/App.css": "./static/media/FirefoxEmoji.c552488c.ttf"
+    "static/js/main.9622b258.chunk.js.LICENSE.txt": "./static/js/main.9622b258.chunk.js.LICENSE.txt",
+    "static/media/App.css": "./static/media/TorEmoji.d8a6fd37.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.72c0fbfe.js",
     "static/css/2.40a22f57.chunk.css",
     "static/js/2.9dcadbe9.chunk.js",
-    "static/css/main.3d01d39e.chunk.css",
-    "static/js/main.502cc098.chunk.js"
+    "static/css/main.2ff89984.chunk.css",
+    "static/js/main.9622b258.chunk.js"
   ]
 }
