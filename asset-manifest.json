@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "./static/css/main.2ff89984.chunk.css",
-    "main.js": "./static/js/main.a8a538b4.chunk.js",
+    "main.js": "./static/js/main.ba1e86e8.chunk.js",
     "runtime-main.js": "./static/js/runtime-main.72c0fbfe.js",
     "static/css/2.40a22f57.chunk.css": "./static/css/2.40a22f57.chunk.css",
     "static/js/2.9dcadbe9.chunk.js": "./static/js/2.9dcadbe9.chunk.js",
     "index.html": "./index.html",
-    "precache-manifest.c8613482ac970bf86b2cbf76e209837f.js": "./precache-manifest.c8613482ac970bf86b2cbf76e209837f.js",
+    "precache-manifest.dfcf966d5358fa95764eb1fd1eacb62b.js": "./precache-manifest.dfcf966d5358fa95764eb1fd1eacb62b.js",
     "service-worker.js": "./service-worker.js",
     "static/js/2.9dcadbe9.chunk.js.LICENSE.txt": "./static/js/2.9dcadbe9.chunk.js.LICENSE.txt",
-    "static/js/main.a8a538b4.chunk.js.LICENSE.txt": "./static/js/main.a8a538b4.chunk.js.LICENSE.txt",
+    "static/js/main.ba1e86e8.chunk.js.LICENSE.txt": "./static/js/main.ba1e86e8.chunk.js.LICENSE.txt",
     "static/media/App.css": "./static/media/TorEmoji.d8a6fd37.woff2"
   },
   "entrypoints": [
@@ -17,6 +17,6 @@
     "static/css/2.40a22f57.chunk.css",
     "static/js/2.9dcadbe9.chunk.js",
     "static/css/main.2ff89984.chunk.css",
-    "static/js/main.a8a538b4.chunk.js"
+    "static/js/main.ba1e86e8.chunk.js"
   ]
 }
