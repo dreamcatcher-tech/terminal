@@ -46,8 +46,8 @@ const TerminalContainer = (props) => {
       cursorBlink: true,
       cursorStyle: 'underline',
       convertEol: true,
-      rendererType: 'dom', // required for TorBrowser
-      fontFamily: ['Courier New', 'Firefox Emoji'],
+      // rendererType: 'dom', // required for TorBrowser
+      fontFamily: ['Courier New', 'TorEmoji'],
     })
     const fitAddon = new FitAddon()
     terminal.loadAddon(fitAddon)

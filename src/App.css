@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'Firefox Emoji';
-  src: url('FirefoxEmoji.ttf') format('ttf');
+  font-family: 'TorEmoji';
+  src: url('TorEmoji.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
