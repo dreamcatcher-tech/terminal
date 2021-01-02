@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "501fe1fd3251cddfe4d09e39558957a2",
+    "revision": "953ec0b5864a4c42fef2bd386261a86b",
     "url": "./index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/css/2.40a22f57.chunk.css"
   },
   {
-    "revision": "32900a4ef19a028d6964",
-    "url": "./static/css/main.b28ca19a.chunk.css"
+    "revision": "f58c0b384e0bd0af7e6b",
+    "url": "./static/css/main.0f1f1c81.chunk.css"
   },
   {
     "revision": "16546966a1f435a9d19e",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/js/2.9dcadbe9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "32900a4ef19a028d6964",
+    "revision": "f58c0b384e0bd0af7e6b",
     "url": "./static/js/main.9c7b9a63.chunk.js"
   },
   {
@@ -32,7 +32,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/js/runtime-main.72c0fbfe.js"
   },
   {
-    "revision": "c552488cd75961149a2c68f3d1f8a591",
-    "url": "./static/media/FirefoxEmoji.c552488c.ttf"
+    "revision": "d8a6fd37afcb9f956587ad49bde062a7",
+    "url": "./static/media/FirefoxEmoji.d8a6fd37.woff2"
   }
 ]);

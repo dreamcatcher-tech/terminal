@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "./static/css/main.b28ca19a.chunk.css",
+    "main.css": "./static/css/main.0f1f1c81.chunk.css",
     "main.js": "./static/js/main.9c7b9a63.chunk.js",
     "runtime-main.js": "./static/js/runtime-main.72c0fbfe.js",
     "static/css/2.40a22f57.chunk.css": "./static/css/2.40a22f57.chunk.css",
     "static/js/2.9dcadbe9.chunk.js": "./static/js/2.9dcadbe9.chunk.js",
     "index.html": "./index.html",
-    "precache-manifest.ed682f242986c68bd2922e48f383e785.js": "./precache-manifest.ed682f242986c68bd2922e48f383e785.js",
+    "precache-manifest.dc16c2b5535848b6aa1c7dbcdba04315.js": "./precache-manifest.dc16c2b5535848b6aa1c7dbcdba04315.js",
     "service-worker.js": "./service-worker.js",
     "static/js/2.9dcadbe9.chunk.js.LICENSE.txt": "./static/js/2.9dcadbe9.chunk.js.LICENSE.txt",
     "static/js/main.9c7b9a63.chunk.js.LICENSE.txt": "./static/js/main.9c7b9a63.chunk.js.LICENSE.txt",
-    "static/media/App.css": "./static/media/FirefoxEmoji.c552488c.ttf"
+    "static/media/App.css": "./static/media/FirefoxEmoji.d8a6fd37.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.72c0fbfe.js",
     "static/css/2.40a22f57.chunk.css",
     "static/js/2.9dcadbe9.chunk.js",
-    "static/css/main.b28ca19a.chunk.css",
+    "static/css/main.0f1f1c81.chunk.css",
     "static/js/main.9c7b9a63.chunk.js"
   ]
 }
