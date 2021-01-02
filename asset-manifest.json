@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "./static/css/main.07213f8c.chunk.css",
-    "main.js": "./static/js/main.30de89d4.chunk.js",
+    "main.css": "./static/css/main.ac87c187.chunk.css",
+    "main.js": "./static/js/main.66ead4af.chunk.js",
     "runtime-main.js": "./static/js/runtime-main.72c0fbfe.js",
     "static/css/2.40a22f57.chunk.css": "./static/css/2.40a22f57.chunk.css",
     "static/js/2.9dcadbe9.chunk.js": "./static/js/2.9dcadbe9.chunk.js",
     "index.html": "./index.html",
-    "precache-manifest.e4943403c8ecd0564e0da18d7c93e143.js": "./precache-manifest.e4943403c8ecd0564e0da18d7c93e143.js",
+    "precache-manifest.47e758c73bc94bfa79a74da6beb4e49b.js": "./precache-manifest.47e758c73bc94bfa79a74da6beb4e49b.js",
     "service-worker.js": "./service-worker.js",
     "static/js/2.9dcadbe9.chunk.js.LICENSE.txt": "./static/js/2.9dcadbe9.chunk.js.LICENSE.txt",
-    "static/js/main.30de89d4.chunk.js.LICENSE.txt": "./static/js/main.30de89d4.chunk.js.LICENSE.txt",
+    "static/js/main.66ead4af.chunk.js.LICENSE.txt": "./static/js/main.66ead4af.chunk.js.LICENSE.txt",
     "static/media/App.css": "./static/media/FirefoxEmoji.c552488c.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.72c0fbfe.js",
     "static/css/2.40a22f57.chunk.css",
     "static/js/2.9dcadbe9.chunk.js",
-    "static/css/main.07213f8c.chunk.css",
-    "static/js/main.30de89d4.chunk.js"
+    "static/css/main.ac87c187.chunk.css",
+    "static/js/main.66ead4af.chunk.js"
   ]
 }
