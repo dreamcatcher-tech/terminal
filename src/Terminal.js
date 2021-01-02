@@ -46,7 +46,7 @@ const TerminalContainer = (props) => {
       cursorBlink: true,
       cursorStyle: 'underline',
       convertEol: true,
-      // rendererType: 'dom', // required for TorBrowser
+      rendererType: 'dom', // required for TorBrowser
       fontFamily: ['Courier New', 'TorEmoji'],
     })
     const fitAddon = new FitAddon()
@@ -73,12 +73,6 @@ const TerminalContainer = (props) => {
   }, [])
 
   const [, blockchain] = useBlockchain()
-
-  //   useEffect(() => {
-  //     // TODO pass in std* for isolation ?
-  //     const emptyArgs = []
-  //     shell(emptyArgs, { blockchain })
-  //   }, [])
 
   return <div id="xterm-container" {...props}></div>
 }
