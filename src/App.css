@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Firefox Emoji';
+  src: url('FirefoxEmoji.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

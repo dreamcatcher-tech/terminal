@@ -5,7 +5,7 @@ import debugFactory from 'debug'
 import Terminal from './Terminal'
 
 const debug = debugFactory(`shell:App`)
-debugFactory.enable(`*metro* dos-shell*`)
+debugFactory.enable(`*metro* dos*`)
 
 function App() {
   return <Terminal style={{ height: '100vh', backgroundColor: 'black' }} />

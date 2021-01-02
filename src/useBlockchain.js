@@ -7,7 +7,7 @@ const shell = require('@dreamcatcher-tech/dos')
 const blockchains = new Map()
 
 export const useBlockchain = (identifier = 'default', gateways = []) => {
-  assert.equal(typeof identifier, 'string')
+  assert.strictEqual(typeof identifier, 'string')
   if (typeof gateways === 'string') {
     gateways = [gateways]
   }
@@ -25,10 +25,14 @@ export const useBlockchain = (identifier = 'default', gateways = []) => {
         debug(`initializing blockchain: ${identifier}`)
         const blockchainPromise = effectorFactory()
         blockchains.set(identifier, blockchainPromise)
+        const blockchain = await blockchainPromise
+        const state = blockchain.getState()
+        console.log(`state: `, state)
+        blockchains.set(identifier, blockchain)
         const emptyArgs = []
-        shell(emptyArgs, { blockchain: blockchainPromise })
+        shell(emptyArgs, { blockchain })
       }
-      const blockchain = await blockchains.get(identifier)
+      const blockchain = blockchains.get(identifier)
       blockchainRef.current = blockchain
       setState(blockchain.getState())
       blockchain.subscribe(() => {

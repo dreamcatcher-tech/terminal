@@ -31,7 +31,7 @@ const convertToStdStream = (terminal) => {
   terminal.clearLine = () => terminal.write(clearLineCode)
   terminal.cursorTo = (x, y) => {
     debug(`cursorTo: `, x, y)
-    assert.equal(x, 0)
+    assert.strictEqual(x, 0)
     const leftByOneThousandChars = '\u001b[1000D'
     terminal.write(leftByOneThousandChars)
   }
@@ -47,6 +47,7 @@ const TerminalContainer = (props) => {
       cursorStyle: 'underline',
       convertEol: true,
       rendererType: 'dom', // required for TorBrowser
+      fontFamily: ['Courier New', 'Firefox Emoji'],
     })
     const fitAddon = new FitAddon()
     terminal.loadAddon(fitAddon)
