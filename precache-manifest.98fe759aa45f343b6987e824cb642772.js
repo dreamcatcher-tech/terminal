@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d9ae43e29b2c10dcd642771489406e87",
+    "revision": "2fe524be65f0d9eb599b43ec8d9a49c7",
     "url": "./index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/css/2.40a22f57.chunk.css"
   },
   {
-    "revision": "19efa2a69bfc152cd8a8",
-    "url": "./static/css/main.2ff89984.chunk.css"
+    "revision": "058ba76bba118dc8c281",
+    "url": "./static/css/main.3d01d39e.chunk.css"
   },
   {
     "revision": "16546966a1f435a9d19e",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/js/2.9dcadbe9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "19efa2a69bfc152cd8a8",
+    "revision": "058ba76bba118dc8c281",
     "url": "./static/js/main.9622b258.chunk.js"
   },
   {
@@ -32,7 +32,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/js/runtime-main.72c0fbfe.js"
   },
   {
-    "revision": "d8a6fd37afcb9f956587ad49bde062a7",
-    "url": "./static/media/TorEmoji.d8a6fd37.woff2"
+    "revision": "c552488cd75961149a2c68f3d1f8a591",
+    "url": "./static/media/FirefoxEmoji.c552488c.ttf"
   }
 ]);
