@@ -49,9 +49,9 @@ const TerminalContainer = (props) => {
     debug(`opening terminal`)
     const terminal = new Terminal({
       cursorBlink: true,
-      cursorStyle: 'underline',
+      cursorStyle: 'block', // gets overridden by enquirer
       convertEol: true,
-      rendererType: 'dom', // required for TorBrowser
+      rendererType: 'canvas',
     })
     const fitAddon = new FitAddon()
     terminal.loadAddon(fitAddon)
