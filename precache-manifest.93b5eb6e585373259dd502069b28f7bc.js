@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ff4ca37521e04e6bbc2315e83254c5c6",
+    "revision": "050269079bd3e23eb39553ec11edf4ca",
     "url": "./index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/css/2.603153be.chunk.css"
   },
   {
-    "revision": "07b026698385661a7b17",
-    "url": "./static/css/main.8cf999fb.chunk.css"
+    "revision": "d9040953f1eba4666881",
+    "url": "./static/css/main.8ee4fcf0.chunk.css"
   },
   {
     "revision": "de05966e1d42fda43c39",
@@ -20,12 +20,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/js/2.01a4db6c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "07b026698385661a7b17",
-    "url": "./static/js/main.f291f395.chunk.js"
+    "revision": "d9040953f1eba4666881",
+    "url": "./static/js/main.8b29a55c.chunk.js"
   },
   {
     "revision": "dcc739e15368ee2ed841935b64eba5a7",
-    "url": "./static/js/main.f291f395.chunk.js.LICENSE.txt"
+    "url": "./static/js/main.8b29a55c.chunk.js.LICENSE.txt"
   },
   {
     "revision": "63af0e06d852bbc0a21a",
@@ -33,7 +33,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "d8a6fd37afcb9f956587ad49bde062a7",
-    "url": "./static/media/FirefoxEmoji.d8a6fd37.woff2"
+    "url": "./static/media/TorEmoji.d8a6fd37.woff2"
   },
   {
     "revision": "4c1f822f3dc3231d68f54775bf7cf825",
