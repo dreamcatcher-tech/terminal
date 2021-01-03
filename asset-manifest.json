@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "./static/css/main.86f64058.chunk.css",
-    "main.js": "./static/js/main.d73fb5a3.chunk.js",
+    "main.css": "./static/css/main.8cf999fb.chunk.css",
+    "main.js": "./static/js/main.55f14bdd.chunk.js",
     "runtime-main.js": "./static/js/runtime-main.72c0fbfe.js",
     "static/css/2.603153be.chunk.css": "./static/css/2.603153be.chunk.css",
-    "static/js/2.afbfa75e.chunk.js": "./static/js/2.afbfa75e.chunk.js",
+    "static/js/2.01a4db6c.chunk.js": "./static/js/2.01a4db6c.chunk.js",
     "index.html": "./index.html",
-    "precache-manifest.ccbbe2d1e42432a9afd341649d0ac61d.js": "./precache-manifest.ccbbe2d1e42432a9afd341649d0ac61d.js",
+    "precache-manifest.9446dc1b59889a8816357f1a2f73bc2b.js": "./precache-manifest.9446dc1b59889a8816357f1a2f73bc2b.js",
     "service-worker.js": "./service-worker.js",
-    "static/js/2.afbfa75e.chunk.js.LICENSE.txt": "./static/js/2.afbfa75e.chunk.js.LICENSE.txt",
-    "static/js/main.d73fb5a3.chunk.js.LICENSE.txt": "./static/js/main.d73fb5a3.chunk.js.LICENSE.txt",
-    "static/media/App.css": "./static/media/TorEmoji.d8a6fd37.woff2",
+    "static/js/2.01a4db6c.chunk.js.LICENSE.txt": "./static/js/2.01a4db6c.chunk.js.LICENSE.txt",
+    "static/js/main.55f14bdd.chunk.js.LICENSE.txt": "./static/js/main.55f14bdd.chunk.js.LICENSE.txt",
+    "static/media/App.css": "./static/media/FirefoxEmoji.d8a6fd37.woff2",
     "static/media/index.css": "./static/media/roboto-mono-vietnamese-400-normal.df37c0e9.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.72c0fbfe.js",
     "static/css/2.603153be.chunk.css",
-    "static/js/2.afbfa75e.chunk.js",
-    "static/css/main.86f64058.chunk.css",
-    "static/js/main.d73fb5a3.chunk.js"
+    "static/js/2.01a4db6c.chunk.js",
+    "static/css/main.8cf999fb.chunk.css",
+    "static/js/main.55f14bdd.chunk.js"
   ]
 }
