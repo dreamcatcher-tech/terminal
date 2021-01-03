@@ -51,7 +51,7 @@ const TerminalContainer = (props) => {
       cursorBlink: true,
       cursorStyle: 'block', // gets overridden by enquirer
       convertEol: true,
-      rendererType: 'canvas',
+      rendererType: 'dom', // needed in tor browser
     })
     const fitAddon = new FitAddon()
     terminal.loadAddon(fitAddon)
