@@ -1,7 +1,7 @@
 import assert from 'assert'
 import React, { useEffect, useRef } from 'react'
 import debugFactory from 'debug'
-import { useBlockchain } from './useBlockchain'
+import { useNavigation } from './useNavigation'
 import { Terminal } from 'xterm'
 import { FitAddon } from 'xterm-addon-fit'
 import { Unicode11Addon } from 'xterm-addon-unicode11'
@@ -12,7 +12,6 @@ import 'xterm/css/xterm.css'
 const mockStdin = require('mock-stdin').stdin
 
 const debug = debugFactory(`terminal`)
-debugFactory.enable('terminal dos:*')
 
 const getMockStdin = () => {
   const previousStdin = process.stdin
@@ -33,7 +32,7 @@ const convertToStdStream = (terminal) => {
   const clearLineCode = '\u001b[2K'
   terminal.clearLine = () => terminal.write(clearLineCode)
   terminal.cursorTo = (x, y) => {
-    debug(`cursorTo: `, x, y)
+    // debug(`cursorTo: `, x, y)
     assert.strictEqual(x, 0)
     const leftByOneThousandChars = '\u001b[1000D'
     terminal.write(leftByOneThousandChars)
@@ -44,8 +43,6 @@ const TerminalContainer = (props) => {
   const xtermRef = useRef()
 
   useEffect(() => {
-    debugFactory.enable('terminal dos:*')
-
     debug(`opening terminal`)
     const terminal = new Terminal({
       cursorBlink: true,
@@ -109,8 +106,7 @@ const TerminalContainer = (props) => {
       })
   }, [])
 
-  const [, blockchain] = useBlockchain()
-
+  useNavigation()
   return <div id="xterm-container" {...props}></div>
 }
 
