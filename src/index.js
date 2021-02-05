@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import Blockchain from './Blockchain'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Blockchain>
+      <App />
+    </Blockchain>
   </React.StrictMode>,
   document.getElementById('root')
 )

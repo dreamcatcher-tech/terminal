@@ -1,15 +1,19 @@
-import { Router, useLocation, useNavigate } from '@reach/router'
 import React from 'react'
 import './App.css'
 import debugFactory from 'debug'
 import Terminal from './Terminal'
+import DUI from './DUI'
+import { useNavigation } from './useNavigation'
 
-const debug = debugFactory(`shell:App`)
-debugFactory.enable(`*metro* dos* *useNavigation`)
+debugFactory.enable(`*metro* dos* *useBlockchain *Blockchain `)
 
 function App() {
+  useNavigation()
   return (
-    <Terminal path="/" style={{ height: '50vh', backgroundColor: 'black' }} />
+    <>
+      <Terminal path="/" style={{ height: '50vh', backgroundColor: 'black' }} />
+      <DUI />
+    </>
   )
 }
 

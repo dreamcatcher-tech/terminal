@@ -1,7 +1,6 @@
 import assert from 'assert'
 import React, { useEffect, useRef } from 'react'
 import debugFactory from 'debug'
-import { useNavigation } from './useNavigation'
 import { Terminal } from 'xterm'
 import { FitAddon } from 'xterm-addon-fit'
 import { Unicode11Addon } from 'xterm-addon-unicode11'
@@ -63,7 +62,7 @@ const TerminalContainer = (props) => {
     terminal.attachCustomKeyEventHandler((event) => {
       const { key, type } = event
       if (ignoreKeys.includes(key)) {
-        debug(`ignoring: ${key}`)
+        debug(`ignoring: ${key} with type: ${type}`)
         return false
       }
     })
@@ -105,8 +104,6 @@ const TerminalContainer = (props) => {
         fitAddon.fit() // workaround for xterm blanking existing text on font change
       })
   }, [])
-
-  useNavigation()
   return <div id="xterm-container" {...props}></div>
 }
 
