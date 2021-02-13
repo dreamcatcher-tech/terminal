@@ -5,7 +5,9 @@ import Terminal from './Terminal'
 import DUI from './DUI'
 import { useNavigation } from './useNavigation'
 
-debugFactory.enable(`*metro* dos* *useBlockchain *Blockchain `)
+debugFactory.enable(
+  `*met* dos* *useBlockchain *Blockchain *DUI *Explorer *shell `
+)
 
 function App() {
   useNavigation()

@@ -12,21 +12,22 @@ function Blockchain({
   context: higherContext,
   children,
 }) {
-  const [state, setState] = useState()
+  const [latest, setLatest] = useState()
   const [context, setContext] = useState()
   const [blockchain, setBlockchain] = useState()
 
   useEffect(() => {
+    let unsubscribe
     const subscribe = async () => {
       debug(`initializing blockchain: ${identifier}`)
-      const blockchain = await effectorFactory()
+      const blockchain = await effectorFactory(identifier)
       setBlockchain(blockchain)
       const emptyArgs = []
       commandLineShell(emptyArgs, { blockchain })
       debug(`subscribing to blockchain`)
-      blockchain.subscribe(() => {
+      unsubscribe = blockchain.subscribe(() => {
         const blockchainState = blockchain.getState()
-        setState(blockchainState)
+        setLatest(blockchainState)
         if (blockchainState.state.context) {
           debug(`setting context`, blockchainState.state.context)
           setContext(blockchainState.state.context)
@@ -34,10 +35,16 @@ function Blockchain({
       })
     }
     subscribe()
-  }, [])
+    return () => {
+      if (unsubscribe) {
+        unsubscribe()
+        debug(`Blockchain ${identifier} has been shut down`)
+      }
+    }
+  }, [identifier])
 
   const Context = higherContext || BlockchainContext
-  const contextValue = { blockchain, state, context }
+  const contextValue = { blockchain, latest, context }
 
   return <Context.Provider value={contextValue}>{children}</Context.Provider>
 }
