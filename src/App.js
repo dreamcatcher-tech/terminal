@@ -6,7 +6,7 @@ import DUI from './DUI'
 import { useNavigation } from './useNavigation'
 
 debugFactory.enable(
-  `*met* dos* *useBlockchain *Blockchain *DUI *Explorer *shell `
+  `*met* dos* *useBlockchain *Blockchain *DUI *Explorer *shell *useChannel *Home`
 )
 
 function App() {

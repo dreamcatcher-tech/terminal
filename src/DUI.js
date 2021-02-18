@@ -2,6 +2,7 @@ import React from 'react'
 import { useBlockchain } from './useBlockchain'
 import Debug from 'debug'
 import Explorer from './components/Explorer'
+import Home from './components/Home'
 const debug = Debug('terminal:DUI')
 /** DYNAMIC UI
  * Walk the full path from the wd and build up the ui by these layers.
@@ -19,12 +20,16 @@ const DUI = () => {
     return <h3>Blockchain loading....</h3>
   }
   const { wd } = context
-
   // fetch all segments state
   // map segment widgetUi to either a default component if schema, or to customUi component
   // ? how to get the children in when we do not have them resolved yet ?
   // make a render manager component which handled effects for each level, so can fetch more
-  return <Explorer path={wd} />
+
+  const widgets = {
+    '/crm': Home,
+  }
+
+  return <Explorer path={wd} widgets={widgets} />
 }
 
 export default DUI
