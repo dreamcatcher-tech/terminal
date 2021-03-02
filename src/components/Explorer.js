@@ -3,8 +3,8 @@
  * Renders itself as a list of children, then renders the selected child indented.
  */
 import React, { useEffect, useState } from 'react'
-import { useBlockchain } from '../useBlockchain'
-import { useChannel } from '../useChannel'
+import { useBlockchain } from '../hooks/useBlockchain'
+import { useBlockstream } from '../hooks/useBlockstream'
 import Debug from 'debug'
 import ReactJson from 'react-json-view'
 import assert from 'assert'
@@ -12,45 +12,29 @@ import { getNextPath } from '../utils'
 
 const debug = Debug('terminal:Explorer')
 const Explorer = (props) => {
-  const { path, cwd = '/', widgets = {} } = props
-  debug(`path: `, path)
-  const { blockchain, latest } = useBlockchain()
-
-  const { state, ls, subscribeLs } = useChannel(cwd)
-  subscribeLs()
-
-  const Component = getChildComponent(cwd, widgets)
-  if (Component) {
-    return <Component path={path} cwd={cwd} widgets={widgets} />
+  const { chainId, path, cwd = '/', widgets = {} } = props
+  debug(`path: %s cwd: %s chainId: %s`, path, cwd, chainId.substring(0, 9))
+  // walk from latest block down to the cwd, which represents the block we want
+  const block = useBlockstream(chainId)
+  if (!block) {
+    return null
   }
-  const nextPath = getNextPath(path, cwd)
-  const nextProps = { ...props, cwd: nextPath }
-  const child = nextPath ? <Explorer {...nextProps} /> : null
-  return <div>{child}</div>
-
-  // let renderedState = <div>no state</div>
-  // if (state) {
-  //   renderedState = <ReactJson src={state} name={'state'} collapsed />
-  // }
-  // let renderedChildren = <div>no children</div>
-  // if (children) {
-  //   renderedChildren = <ReactJson src={children} name={'children'} collapsed />
-  // }
-  // let renderedChild
-  // if (nextPath) {
-  //   renderedChild = <Explorer path={path} cwd={nextPath} />
-  // }
-  // return (
-  //   <div style={{ borderColor: 'red' }}>
-  //     <pre>Explorer path: {path}</pre>
-  //     <pre>Cwd: {cwd}</pre>
-  //     {renderedState}
-  //     {renderedChildren}
-  //     {renderedChild}
-  //   </div>
-  // )
+  const Component = getComponent(cwd, widgets)
+  if (Component) {
+    return <Component block={block} path={path} cwd={cwd} widgets={widgets} />
+  }
+  const nextCwd = getNextPath(path, cwd)
+  if (!nextCwd) {
+    return null
+  }
+  // the current block has to have this alias in it somewhere, else some error
+  const alias = nextCwd.split('/').pop()
+  const nextChainId = block.network[alias].address.getChainId()
+  const nextProps = { ...props, cwd: nextCwd, chainId: nextChainId }
+  const child = nextCwd ? <Explorer {...nextProps} /> : null
+  return child
 }
-const getChildComponent = (cwd, widgets) => {
+const getComponent = (cwd, widgets) => {
   // if datum, use the jscon-schema-form
   // if collection, use the standard collection
   // else return Explorer as the standard component
@@ -59,7 +43,6 @@ const getChildComponent = (cwd, widgets) => {
     debug(`widget found for ${cwd}`)
     return widgets[cwd]
   }
-  debug(`no widget found for ${cwd} - using Explorer`)
   return
 }
 

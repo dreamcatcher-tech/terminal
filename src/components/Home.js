@@ -3,7 +3,8 @@ import Debug from 'debug'
 import { Button } from '@material-ui/core'
 import Explorer from './Explorer'
 import { getNextPath } from '../utils'
-import { useChannel } from '../useChannel'
+import { useChannel } from '../hooks/useChannel'
+import { useBlockstream } from '../hooks/useBlockstream'
 import { AppBar, Toolbar } from '@material-ui/core'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 import { IconButton } from '@material-ui/core'
@@ -25,15 +26,13 @@ const useStyles = makeStyles({
 const Nav = (props) => {
   debug(`props: `, props)
   const classes = useStyles()
-  const { path, cwd } = props
+  const { block, path, cwd } = props
   const nextPath = getNextPath(path, cwd)
   const nextProps = { ...props, cwd: nextPath }
-  const child = nextPath ? <Explorer {...nextProps} /> : null
-  const { ls, subscribeLs } = useChannel(cwd)
-  subscribeLs()
-  const children = ls
-    ? Object.keys(ls).filter((child) => child !== '.' && child !== '..')
-    : []
+  // const child = nextPath ? <Explorer {...nextProps} /> : null
+
+  const children = getChildren(block)
+  debug(`aliases: `, children)
   const navLinks = children.map((child) => ({
     title: child,
     path: '/' + child,
@@ -46,31 +45,37 @@ const Nav = (props) => {
     }
   }
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="home">
-          <Home fontSize="large" />
-        </IconButton>
-        <List
-          component="nav"
-          aria-labelledby="main navigation"
-          className={classes.navDisplayFlex}
-        >
-          {navLinks.map(({ title, path }) => (
-            <a
-              key={title}
-              className={classes.linkText}
-              onClick={onClick(title)}
-            >
-              <ListItem button>
-                <ListItemText primary={title} />
-              </ListItem>
-            </a>
-          ))}
-        </List>
-      </Toolbar>
-    </AppBar>
+    <>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" color="inherit" aria-label="home">
+            <Home fontSize="large" />
+          </IconButton>
+          <List
+            component="nav"
+            aria-labelledby="main navigation"
+            className={classes.navDisplayFlex}
+          >
+            {navLinks.map(({ title, path }) => (
+              <a
+                key={title}
+                className={classes.linkText}
+                onClick={onClick(title)}
+              >
+                <ListItem button>
+                  <ListItemText primary={title} />
+                </ListItem>
+              </a>
+            ))}
+          </List>
+        </Toolbar>
+      </AppBar>
+      {/* {child} */}
+    </>
   )
 }
-
+const getChildren = (block) => {
+  const masked = ['..', '.', '.@@io']
+  return block.network.getAliases().filter((alias) => !masked.includes(alias))
+}
 export default Nav

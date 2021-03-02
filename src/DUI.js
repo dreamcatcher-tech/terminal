@@ -1,8 +1,9 @@
 import React from 'react'
-import { useBlockchain } from './useBlockchain'
+import { useBlockchain } from './hooks/useBlockchain'
 import Debug from 'debug'
 import Explorer from './components/Explorer'
 import Home from './components/Home'
+import Customers from './components/Customers'
 const debug = Debug('terminal:DUI')
 /** DYNAMIC UI
  * Walk the full path from the wd and build up the ui by these layers.
@@ -15,7 +16,7 @@ const debug = Debug('terminal:DUI')
  */
 
 const DUI = () => {
-  const { context } = useBlockchain()
+  const { context, latest } = useBlockchain()
   if (!context) {
     return <h3>Blockchain loading....</h3>
   }
@@ -27,9 +28,10 @@ const DUI = () => {
 
   const widgets = {
     '/crm': Home,
+    '/crm/customers': Customers,
   }
-
-  return <Explorer path={wd} widgets={widgets} />
+  const chainId = latest.getChainId()
+  return <Explorer chainId={chainId} path={wd} widgets={widgets} />
 }
 
 export default DUI
