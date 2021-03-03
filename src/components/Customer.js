@@ -53,9 +53,11 @@ const Customer = (props) => {
   }
 
   const classes = useStyles()
+  const container = document.getElementById('DUI')
+  const disableAutoFocus = !container.contains(document.activeElement)
   return (
     <Dialog
-      container={() => document.getElementById('DUI')}
+      container={container}
       onClose={onClose}
       aria-labelledby="simple-dialog-title"
       open
@@ -63,7 +65,8 @@ const Customer = (props) => {
         classes: { root: classes.backdrop },
       }}
       style={{ position: 'absolute' }}
-      disableEnforceFocus={false}
+      disableEnforceFocus
+      disableAutoFocus={disableAutoFocus}
     >
       <DialogTitle id="simple-dialog-title">Customer {cwd}</DialogTitle>
       <DialogContent>
