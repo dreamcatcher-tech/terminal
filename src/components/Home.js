@@ -29,7 +29,8 @@ const Nav = (props) => {
   const { block, path, cwd } = props
   const nextPath = getNextPath(path, cwd)
   const nextProps = { ...props, cwd: nextPath }
-  // const child = nextPath ? <Explorer {...nextProps} /> : null
+  // TODO let Explorer figure out the nextProps on its own
+  const child = nextPath ? <Explorer {...nextProps} /> : null
 
   const children = getChildren(block)
   debug(`aliases: `, children)
@@ -37,9 +38,14 @@ const Nav = (props) => {
     title: child,
     path: '/' + child,
   }))
-  const onClick = (path) => () => {
-    debug(`onclick`, path)
-    const command = `cd /crm/${path}\n`
+  const onClick = (child) => () => {
+    debug(`onclick`, child)
+    const nextPath = cwd + '/' + child
+    if (path === nextPath) {
+      debug(`no change to ${path}`)
+      return
+    }
+    const command = `cd ${nextPath}\n`
     for (const c of command) {
       process.stdin.send(c)
     }
@@ -70,7 +76,7 @@ const Nav = (props) => {
           </List>
         </Toolbar>
       </AppBar>
-      {/* {child} */}
+      {child}
     </>
   )
 }

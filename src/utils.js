@@ -5,7 +5,7 @@ const debug = Debug('terminal:utils')
 export const getNextPath = (path, cwd) => {
   assert.strictEqual(typeof path, 'string')
   assert.strictEqual(typeof cwd, 'string')
-  const segments = _getPathSegments(path)
+  const segments = getPathSegments(path)
   assert(segments.includes(cwd), `invalid cwd: ${cwd}`)
   while (segments[0] !== cwd) {
     segments.shift()
@@ -15,7 +15,7 @@ export const getNextPath = (path, cwd) => {
   debug(`nextPath`, nextPath)
   return nextPath
 }
-const _getPathSegments = (alias) => {
+export const getPathSegments = (alias) => {
   if (alias === '/') {
     return ['/']
   }

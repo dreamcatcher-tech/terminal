@@ -12,10 +12,10 @@ import { getNextPath } from '../utils'
 
 const debug = Debug('terminal:Explorer')
 const Explorer = (props) => {
-  const { chainId, path, cwd = '/', widgets = {} } = props
-  debug(`path: %s cwd: %s chainId: %s`, path, cwd, chainId.substring(0, 9))
+  const { path, cwd = '/', widgets = {} } = props
+  debug(`path: %s cwd: %s`, path, cwd)
   // walk from latest block down to the cwd, which represents the block we want
-  const block = useBlockstream(chainId)
+  const block = useBlockstream(cwd)
   if (!block) {
     return null
   }
@@ -42,6 +42,16 @@ const getComponent = (cwd, widgets) => {
   if (widgets[cwd]) {
     debug(`widget found for ${cwd}`)
     return widgets[cwd]
+  }
+  for (const key in widgets) {
+    if (key.endsWith('*')) {
+      const trimmed = cwd.substring(0, cwd.lastIndexOf('/'))
+      const possible = trimmed + '/*'
+      if (key === possible) {
+        debug(`regex widget found for ${cwd} by matching ${key}`)
+        return widgets[key]
+      }
+    }
   }
   return
 }

@@ -6,11 +6,9 @@ import * as serviceWorker from './serviceWorker'
 import Blockchain from './Blockchain'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Blockchain>
-      <App />
-    </Blockchain>
-  </React.StrictMode>,
+  <Blockchain>
+    <App />
+  </Blockchain>,
   document.getElementById('root')
 )
 

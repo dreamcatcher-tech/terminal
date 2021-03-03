@@ -4,6 +4,7 @@ import Debug from 'debug'
 import Explorer from './components/Explorer'
 import Home from './components/Home'
 import Customers from './components/Customers'
+import Customer from './components/Customer'
 const debug = Debug('terminal:DUI')
 /** DYNAMIC UI
  * Walk the full path from the wd and build up the ui by these layers.
@@ -29,9 +30,13 @@ const DUI = () => {
   const widgets = {
     '/crm': Home,
     '/crm/customers': Customers,
+    '/crm/customers/*': Customer,
   }
-  const chainId = latest.getChainId()
-  return <Explorer chainId={chainId} path={wd} widgets={widgets} />
+  return (
+    <div id="DUI" style={{ position: 'relative', height: '50vh' }}>
+      <Explorer path={wd} widgets={widgets} />
+    </div>
+  )
 }
 
 export default DUI
