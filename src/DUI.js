@@ -33,7 +33,7 @@ const DUI = () => {
     '/crm/customers/*': Customer,
   }
   return (
-    <div id="DUI" style={{ position: 'relative', height: '50%' }}>
+    <div id="DUI" style={{ position: 'relative', height: '50vh' }}>
       <Explorer path={wd} widgets={widgets} />
     </div>
   )
