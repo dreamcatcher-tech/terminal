@@ -4,7 +4,7 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
 import React from 'react'
 import Debug from 'debug'
-import { Button } from '@material-ui/core'
+import { Button, DialogActions } from '@material-ui/core'
 import Explorer from './Explorer'
 import { getNextPath } from '../utils'
 import { useChannel } from '../hooks/useChannel'
@@ -54,7 +54,7 @@ const Customer = (props) => {
 
   const classes = useStyles()
   const container = document.getElementById('DUI')
-  const disableAutoFocus = !container.contains(document.activeElement)
+  const isTerminalFocused = !container.contains(document.activeElement)
   return (
     <Dialog
       container={container}
@@ -65,15 +65,23 @@ const Customer = (props) => {
         classes: { root: classes.backdrop },
       }}
       style={{ position: 'absolute' }}
-      disableEnforceFocus
-      disableAutoFocus={disableAutoFocus}
+      disableEnforceFocus // TODO if terminal is showing, do not force
+      disableRestoreFocus={isTerminalFocused}
+      disableAutoFocus={isTerminalFocused}
     >
       <DialogTitle id="simple-dialog-title">Customer {cwd}</DialogTitle>
       <DialogContent>
         {children.map((child, index) => {
           return <div key={index}>{child}</div>
         })}
+        // show all the panels, with their individual edit files
       </DialogContent>
+      <DialogActions>
+        <Button autoFocus color="primary">
+          Cancel
+        </Button>
+        <Button color="primary">Ok</Button>
+      </DialogActions>
     </Dialog>
   )
 }

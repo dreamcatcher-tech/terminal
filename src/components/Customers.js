@@ -4,8 +4,9 @@ import { Button } from '@material-ui/core'
 import Explorer from './Explorer'
 import { getNextPath } from '../utils'
 import { useChannel } from '../hooks/useChannel'
-import { AppBar, Toolbar } from '@material-ui/core'
+import { AppBar, Toolbar, Fab } from '@material-ui/core'
 import { List, ListItem, ListItemText } from '@material-ui/core'
+import { Add } from '@material-ui/icons'
 import { IconButton } from '@material-ui/core'
 import { Home } from '@material-ui/icons'
 import { makeStyles } from '@material-ui/core'
@@ -32,6 +33,17 @@ const Customers = (props) => {
     }
   }
   const isSelected = (child) => path.startsWith(cwd + '/' + child)
+  const addButtonStyle = {
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 20,
+    left: 'auto',
+    position: 'fixed',
+  }
+  const addCustomer = () => {
+    debug(`addCustomer`)
+  }
   return (
     <>
       <List component="nav" aria-labelledby="customers">
@@ -46,6 +58,9 @@ const Customers = (props) => {
           </ListItem>
         ))}
       </List>
+      <Fab color="primary" style={addButtonStyle} onClick={addCustomer}>
+        <Add />
+      </Fab>
       {child}
     </>
   )
