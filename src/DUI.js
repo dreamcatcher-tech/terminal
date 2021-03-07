@@ -3,7 +3,7 @@ import { useBlockchain } from './hooks/useBlockchain'
 import Debug from 'debug'
 import Explorer from './components/Explorer'
 import Home from './components/Home'
-import Customers from './components/Customers'
+import CustomerList from './components/CustomerList'
 import Customer from './components/Customer'
 const debug = Debug('terminal:DUI')
 /** DYNAMIC UI
@@ -29,11 +29,19 @@ const DUI = () => {
 
   const widgets = {
     '/crm': Home,
-    '/crm/customers': Customers,
+    '/crm/customers': CustomerList,
     '/crm/customers/*': Customer,
   }
   return (
-    <div id="DUI" style={{ position: 'relative', height: '50vh' }}>
+    <div
+      id="DUI"
+      style={{
+        position: 'relative',
+        height: '50vh',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <Explorer path={wd} widgets={widgets} />
     </div>
   )

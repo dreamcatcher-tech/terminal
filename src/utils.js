@@ -16,6 +16,7 @@ export const getNextPath = (path, cwd) => {
   return nextPath
 }
 export const getPathSegments = (alias) => {
+  // TODO merge with metrologyFactory function
   if (alias === '/') {
     return ['/']
   }

@@ -8,10 +8,13 @@ import { useBlockstream } from '../hooks/useBlockstream'
 import { AppBar, Toolbar } from '@material-ui/core'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 import { IconButton } from '@material-ui/core'
-import { Home } from '@material-ui/icons'
+import { Home, AccountCircle, Settings, Info } from '@material-ui/icons'
 import { makeStyles } from '@material-ui/core'
 const debug = Debug('terminal:widgets:Home')
 const useStyles = makeStyles({
+  grow: {
+    flexGrow: 1,
+  },
   navDisplayFlex: {
     display: `flex`,
     justifyContent: `space-between`,
@@ -50,12 +53,24 @@ const Nav = (props) => {
       process.stdin.send(c)
     }
   }
+
+  const makeButtonIcon = (name, icon, description) => (
+    <IconButton
+      edge="end"
+      aria-label={description}
+      aria-haspopup="true"
+      onClick={onClick(name)}
+      color="inherit"
+    >
+      {icon}
+    </IconButton>
+  )
   return (
     <>
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="home">
-            <Home fontSize="large" />
+            <Home />
           </IconButton>
           <List
             component="nav"
@@ -74,6 +89,10 @@ const Nav = (props) => {
               </a>
             ))}
           </List>
+          <div className={classes.grow} />
+          {makeButtonIcon('about', <Info />, 'about')}
+          {makeButtonIcon('settings', <Settings />, 'application settings')}
+          {makeButtonIcon('account', <AccountCircle />, 'current user account')}
         </Toolbar>
       </AppBar>
       {child}
@@ -81,7 +100,7 @@ const Nav = (props) => {
   )
 }
 const getChildren = (block) => {
-  const masked = ['..', '.', '.@@io']
+  const masked = ['..', '.', '.@@io', 'about', 'settings', 'account']
   return block.network.getAliases().filter((alias) => !masked.includes(alias))
 }
 export default Nav
