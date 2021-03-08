@@ -18,7 +18,7 @@ const debug = Debug('terminal:widgets:Customers')
 const CustomerList = (props) => {
   debug(`props: `, props)
   const { block, path, cwd } = props
-  const { blockchain } = useBlockchain()
+  const { blockchain, isPending } = useBlockchain()
   const nextPath = getNextPath(path, cwd)
   const nextProps = { ...props, cwd: nextPath }
   const child = nextPath ? <Explorer {...nextProps} /> : null
@@ -38,13 +38,12 @@ const CustomerList = (props) => {
   }
   const onAddCustomer = () => {
     debug(`addCustomer`)
-    // show a modal UI over the top to get the data we need
+    // show an enquiring modal UI over the top to get the data we need
 
     const command = `./add --isTestData\n`
     for (const c of command) {
       process.stdin.send(c)
     }
-    // TODO disable the button or show an animation while it is busy
   }
   const isSelected = (child) => path.startsWith(cwd + '/' + child)
   const addButtonStyle = {
@@ -84,7 +83,12 @@ const CustomerList = (props) => {
           )
         }}
       </AutoSizer>
-      <Fab color="primary" style={addButtonStyle} onClick={onAddCustomer}>
+      <Fab
+        color="primary"
+        style={addButtonStyle}
+        onClick={onAddCustomer}
+        disabled={isPending}
+      >
         <Add />
       </Fab>
       {child}

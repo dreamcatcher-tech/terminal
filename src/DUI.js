@@ -5,6 +5,9 @@ import Explorer from './components/Explorer'
 import Home from './components/Home'
 import CustomerList from './components/CustomerList'
 import Customer from './components/Customer'
+import About from './components/About'
+import Settings from './components/Settings'
+
 const debug = Debug('terminal:DUI')
 /** DYNAMIC UI
  * Walk the full path from the wd and build up the ui by these layers.
@@ -31,6 +34,8 @@ const DUI = () => {
     '/crm': Home,
     '/crm/customers': CustomerList,
     '/crm/customers/*': Customer,
+    '/crm/about': About,
+    '/crm/settings': Settings,
   }
   return (
     <div

@@ -25,8 +25,8 @@
     "react-virtualized": "^9.22.3",
     "react-window": "^1.8.6",
     "serve": "^11.3.2",
-    "xterm": "^4.9.0",
-    "xterm-addon-fit": "^0.4.0",
+    "xterm": "^4.10.0",
+    "xterm-addon-fit": "^0.5.0",
     "xterm-addon-unicode11": "^0.2.0"
   },
   "scripts": {

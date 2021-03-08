@@ -25,7 +25,6 @@ const useStyles = makeStyles({
 })
 
 const Customer = (props) => {
-  debug(`props: `, props)
   const { block, path, cwd } = props
   const nextPath = getNextPath(path, cwd)
   const nextProps = { ...props, cwd: nextPath }
@@ -76,12 +75,12 @@ const Customer = (props) => {
         })}
         // show all the panels, with their individual edit files
       </DialogContent>
-      <DialogActions>
+      {/* <DialogActions>
         <Button autoFocus color="primary">
           Cancel
         </Button>
         <Button color="primary">Ok</Button>
-      </DialogActions>
+      </DialogActions> */}
     </Dialog>
   )
 }

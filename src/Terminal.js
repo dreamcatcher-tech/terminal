@@ -10,7 +10,7 @@ import 'xterm/css/xterm.css'
 
 const mockStdin = require('mock-stdin').stdin
 
-const debug = debugFactory(`terminal`)
+const debug = debugFactory(`terminal:cli`)
 
 const getMockStdin = () => {
   const previousStdin = process.stdin
@@ -29,9 +29,12 @@ const convertToStdStream = (terminal) => {
   terminal.stdin = stdin
   terminal.isTTY = true
   const clearLineCode = '\u001b[2K'
-  terminal.clearLine = () => terminal.write(clearLineCode)
+  terminal.clearLine = () => {
+    debug(`clearLine`)
+    terminal.write(clearLineCode)
+  }
   terminal.cursorTo = (x, y) => {
-    // debug(`cursorTo: `, x, y)
+    debug(`cursorTo: `, x, y)
     assert.strictEqual(x, 0)
     const leftByOneThousandChars = '\u001b[1000D'
     terminal.write(leftByOneThousandChars)
@@ -70,10 +73,14 @@ const TerminalContainer = (props) => {
       terminal.stdin.send(key)
     })
     xtermRef.current = terminal
-    window.addEventListener('resize', () => fitAddon.fit())
+    window.addEventListener('resize', () => {
+      fitAddon.fit()
+      terminal.columns = terminal.cols
+    })
     process.stdout = terminal
     process.stdin = terminal.stdin
     process.stderr = terminal
+    terminal.columns = terminal.cols // for enquirer to size itself correctly
 
     const roboto = new FontFaceObserver('Roboto Mono')
 
