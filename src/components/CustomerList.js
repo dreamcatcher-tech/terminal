@@ -1,4 +1,5 @@
 import React from 'react'
+import assert from 'assert'
 import Debug from 'debug'
 import { Button } from '@material-ui/core'
 import Explorer from './Explorer'
@@ -36,7 +37,8 @@ const CustomerList = (props) => {
       process.stdin.send(c)
     }
   }
-  const onAddCustomer = () => {
+  const onAddCustomer = async () => {
+    assert(!isPending, `Cannot add customers simultaneously`)
     debug(`addCustomer`)
     // show an enquiring modal UI over the top to get the data we need
 
@@ -44,6 +46,9 @@ const CustomerList = (props) => {
     for (const c of command) {
       process.stdin.send(c)
     }
+    const newCustomer = await isPending
+    // how to learn what customer just got added ?
+    const cd = `cd /crm/customers/bob`
   }
   const isSelected = (child) => path.startsWith(cwd + '/' + child)
   const addButtonStyle = {

@@ -42,7 +42,7 @@ const DUI = () => {
       id="DUI"
       style={{
         position: 'relative',
-        height: '50vh',
+        height: '70vh',
         display: 'flex',
         flexDirection: 'column',
       }}

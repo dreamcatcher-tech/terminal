@@ -6,7 +6,8 @@ import React from 'react'
 import Debug from 'debug'
 import { Button, DialogActions } from '@material-ui/core'
 import Explorer from './Explorer'
-import { makeStyles } from '@material-ui/core'
+import { IconButton, makeStyles } from '@material-ui/core'
+import { Home } from '@material-ui/icons'
 const debug = Debug('terminal:widgets:OpenDialog')
 
 const useStyles = makeStyles({
@@ -30,6 +31,8 @@ const OpenDialog = ({ title, children }) => {
   }
   return (
     <Dialog
+      scroll={'body'}
+      maxWidth={'xl'}
       container={container}
       onClose={onClose}
       aria-labelledby="simple-dialog-title"
@@ -37,14 +40,14 @@ const OpenDialog = ({ title, children }) => {
       BackdropProps={{
         classes: { root: classes.backdrop },
       }}
-      style={{ position: 'absolute' }}
+      className={classes.root}
       // TODO if terminal is showing, do not grab focus
       disableEnforceFocus
       disableRestoreFocus={isTerminalFocused}
       disableAutoFocus={isTerminalFocused}
     >
       <DialogTitle id="simple-dialog-title">{title}</DialogTitle>
-      <DialogContent>{children}</DialogContent>
+      <DialogContent dividers>{children}</DialogContent>
       {/* <DialogActions>
             <Button autoFocus color="primary">
               Cancel
