@@ -40,7 +40,7 @@ const OpenDialog = ({ title, children }) => {
       BackdropProps={{
         classes: { root: classes.backdrop },
       }}
-      className={classes.root}
+      style={{ position: 'absolute' }}
       // TODO if terminal is showing, do not grab focus
       disableEnforceFocus
       disableRestoreFocus={isTerminalFocused}

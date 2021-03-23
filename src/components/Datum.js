@@ -31,10 +31,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Datum = ({ block }) => {
   const { state } = block
-  const { schema, formData: storedFormData } = state
+  const { schema, formData: storedFormData, uiSchema, children } = state
   const { title, ...noTitleSchema } = schema
   const [liveFormData, setLiveFormData] = useState(storedFormData)
   const { isPending } = useBlockchain()
+  // TODO verify the covenant is a datum
+  // TODO verify the children match the schema
+
+  // pull out the children from the schema
+
   const onBlur = (...args) => {
     debug(`onBlur: `, ...args)
   }
@@ -54,7 +59,7 @@ const Datum = ({ block }) => {
     // if any booleans changed, then apply the changes immediately
 
     // ? what is the action to call on the blockchain ?
-    setDatum(formData)
+    // setDatum(formData)
   }
   const classes = useStyles()
   return (
@@ -79,6 +84,7 @@ const Datum = ({ block }) => {
             <Form
               disabled={true}
               schema={noTitleSchema}
+              uiSchema={uiSchema}
               formData={liveFormData}
               children
               onBlur={onBlur}
@@ -101,6 +107,7 @@ const Datum = ({ block }) => {
             <Form
               disabled={isPending}
               schema={noTitleSchema}
+              uiSchema={uiSchema}
               formData={liveFormData}
               children
               onBlur={onBlur}
