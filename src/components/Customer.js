@@ -25,12 +25,10 @@ const Customer = (props) => {
   // TODO assert that this is a datum, and that it is formatted correctly ?
 
   const { title } = block.state.schema
-  const { custNo = 123, firstName, lastName = '' } = block.state.formData
+  const { custNo, name } = block.state.formData
 
   return (
-    <OpenDialog
-      title={`${title}: ${firstName} ${lastName + ' ' || ''}(${custNo})`}
-    >
+    <OpenDialog title={`${title}: ${name} (${custNo})`}>
       <Datum block={block} />
     </OpenDialog>
   )

@@ -29,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+// const DatumCard =
+
 const Datum = ({ block }) => {
   const { state } = block
   const { schema, formData: storedFormData, uiSchema, children } = state
@@ -36,9 +38,9 @@ const Datum = ({ block }) => {
   const [liveFormData, setLiveFormData] = useState(storedFormData)
   const { isPending } = useBlockchain()
   // TODO verify the covenant is a datum
-  // TODO verify the children match the schema
+  // TODO verify the chain children match the schema children
 
-  // pull out the children from the schema
+  // pull out the children from the block, so can draw these as visual children
 
   const onBlur = (...args) => {
     debug(`onBlur: `, ...args)
@@ -61,13 +63,14 @@ const Datum = ({ block }) => {
     // ? what is the action to call on the blockchain ?
     // setDatum(formData)
   }
+
   const classes = useStyles()
   return (
     <Grid container spacing={3}>
       <Grid item>
-        <Card className={classes.card} raised={true}>
+        <Card className={classes.card}>
           <CardHeader
-            title="Name"
+            title={title}
             action={
               <>
                 <IconButton aria-label="edit">
