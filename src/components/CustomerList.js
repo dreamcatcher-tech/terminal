@@ -64,20 +64,28 @@ const CustomerList = (props) => {
     for (const key in properties) {
       let { title = key, description = '' } = properties[key]
       description = description || title
-      const valueGetter = (params) => {
+      const renderCell = (params) => {
         const { row, id, field } = params
-        console.log(row, id, field)
-
+        const { child } = row
         // need to unmap the field to the nested child
         // need to cache all the blocks so fetching them is very cheap
+        // fetch block relating to this child, to get out data
+        // show loading screen in meantime
+        const childPath = cwd + '/' + child
+        debug(childPath)
+        return <CellBlock path={childPath} field={field} />
       }
-      const width = calculateSize(title, { font: 'Arial' })
+      const { width } = calculateSize(title, {
+        font: 'Arial',
+        fontSize: '14px',
+      })
+      debug(`width`, title, width)
       columns.push({
         field: key,
         headerName: title,
         description,
-        valueGetter,
-        flex: title.length,
+        renderCell,
+        width: width + 60,
       })
     }
   }
@@ -86,7 +94,7 @@ const CustomerList = (props) => {
     // debugger
   }
   for (const child of children) {
-    rows.push({ id: rows.length })
+    rows.push({ id: rows.length, child })
   }
   const onClick = ({ id }) => {
     const child = children[id]
@@ -111,23 +119,8 @@ const CustomerList = (props) => {
         disableMultipleSelection
         onRowClick={onClick}
         hideFooter
+        autoHeight
       />
-      {/* <AutoSizer>
-        {({ height, width }) => {
-          // debug(`height: %s width: %s`, height, width)
-          return (
-            <FixedSizeList
-              aria-labelledby="customers"
-              height={height - 1}
-              width={width}
-              itemSize={46}
-              itemCount={children.length}
-            >
-              {rowRendererFactory(props)}
-            </FixedSizeList>
-          )
-        }}
-      </AutoSizer> */}
       <Fab
         color="primary"
         style={addButtonStyle}
@@ -146,47 +139,17 @@ const _getChildren = (block) => {
     .getAliases()
     .filter((alias) => !masked.includes(alias) && !alias.startsWith('.'))
 }
-const rowRendererFactory = ({ block, path, cwd }) => {
-  const children = _getChildren(block)
-  const isSelected = (child) => path.startsWith(cwd + '/' + child)
-  const onClick = (child) => () => {
-    debug(`onclick`, child, cwd)
-    const nextPath = cwd + '/' + child
-    if (path === nextPath) {
-      debug(`no change to ${path}`)
-      return
-    }
-    const command = `cd ${nextPath}\n`
-    for (const c of command) {
-      process.stdin.send(c)
-    }
+const CellBlock = ({ path, field }) => {
+  const block = useBlockstream(path)
+  let text = '(loading...)'
+  if (block && block.state.formData) {
+    // TODO check if this is a datum
+    // TODO draw the columns based on the schema, with local prefs stored for the user
+    const { state } = block
+    text = state.formData[field]
   }
-  return ({ index, style }) => {
-    const alias = children[index]
-    const rowPath = cwd + '/' + alias
-    const block = useBlockstream(rowPath)
-    let rowText = alias
-    if (block && block.state.formData) {
-      // TODO check if this is a datum
-      // TODO draw the columns based on the schema, with local prefs stored for the user
-      const { state } = block
-      const { custNo, name, email } = state.formData
-      if (typeof custNo === 'number') {
-        rowText = `${custNo} ${name} ${email}`
-      }
-    }
-    return (
-      <ListItem
-        button
-        key={index}
-        selected={isSelected(children[index])}
-        onClick={onClick(children[index])}
-        style={style}
-      >
-        <ListItemText primary={rowText} />
-      </ListItem>
-    )
-  }
+  // TODO detect the default key, and display this if nothing else showing
+  return <div>{text}</div>
 }
 
 export default CustomerList
