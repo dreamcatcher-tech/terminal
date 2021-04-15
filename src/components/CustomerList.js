@@ -61,6 +61,7 @@ const CustomerList = (props) => {
     columnsRef.current = columns
     // TODO get nested children columns out, hiding all but top level
     const { properties } = datumTemplate.schema
+    const { namePath } = datumTemplate
     for (const key in properties) {
       let { title = key, description = '' } = properties[key]
       description = description || title
@@ -73,7 +74,14 @@ const CustomerList = (props) => {
         // show loading screen in meantime
         const childPath = cwd + '/' + child
         debug(childPath)
-        return <CellBlock path={childPath} field={field} />
+        return (
+          <CellBlock
+            path={childPath}
+            field={field}
+            alias={child}
+            namePath={namePath[0]}
+          />
+        )
       }
       const { width } = calculateSize(title, {
         font: 'Arial',
@@ -120,6 +128,7 @@ const CustomerList = (props) => {
         onRowClick={onClick}
         hideFooter
         autoHeight
+        logLevel="warn" // does not work
       />
       <Fab
         color="primary"
@@ -139,12 +148,15 @@ const _getChildren = (block) => {
     .getAliases()
     .filter((alias) => !masked.includes(alias) && !alias.startsWith('.'))
 }
-const CellBlock = ({ path, field }) => {
+const CellBlock = ({ path, field, alias, namePath }) => {
   const block = useBlockstream(path)
-  let text = '(loading...)'
-  if (block && block.state.formData) {
+  let text
+  if (field === namePath) {
+    text = alias
+  } else if (block && block.state.formData) {
     // TODO check if this is a datum
     // TODO draw the columns based on the schema, with local prefs stored for the user
+    // TODO draw the different types of object, like checkboxes and others
     const { state } = block
     text = state.formData[field]
   }

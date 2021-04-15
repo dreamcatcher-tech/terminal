@@ -5,7 +5,7 @@ import Terminal from './Terminal'
 import DUI from './DUI'
 import { useNavigation } from './hooks/useNavigation'
 
-debugFactory.enable(`*shell *Customer* *Settings *Datum`)
+// debugFactory.enable(`*shell *Customer* *Settings *Datum`)
 
 function App() {
   useNavigation()
