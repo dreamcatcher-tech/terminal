@@ -1,14 +1,11 @@
-import Portal from '@material-ui/core/Portal'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
 import React from 'react'
 import Debug from 'debug'
-import { Button, DialogActions } from '@material-ui/core'
-import Explorer from './Explorer'
-import { IconButton, makeStyles } from '@material-ui/core'
-import { Home } from '@material-ui/icons'
+import { makeStyles } from '@material-ui/core'
 const debug = Debug('terminal:widgets:OpenDialog')
+debug(`loaded`)
 
 const useStyles = makeStyles({
   root: {

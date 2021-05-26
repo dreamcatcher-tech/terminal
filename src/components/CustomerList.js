@@ -1,32 +1,19 @@
-import React, { PureComponent, useState, useRef } from 'react'
+import React, { useRef } from 'react'
 import calculateSize from 'calculate-size'
 import { XGrid } from '@material-ui/x-grid'
 import assert from 'assert'
 import Debug from 'debug'
-import { Button } from '@material-ui/core'
 import Explorer from './Explorer'
 import { getNextPath } from '../utils'
 import { useBlockchain } from '../hooks/useBlockchain'
-import { AppBar, Toolbar, Fab } from '@material-ui/core'
-import { List, ListItem, ListItemText } from '@material-ui/core'
+import { Fab } from '@material-ui/core'
 import { Add } from '@material-ui/icons'
-import { IconButton } from '@material-ui/core'
-import { Home } from '@material-ui/icons'
-import { makeStyles } from '@material-ui/core'
-import { FixedSizeList } from 'react-window'
-import { AutoSizer } from 'react-virtualized'
 import { useBlockstream } from '../hooks/useBlockstream'
 
-import { LicenseInfo } from '@material-ui/x-grid'
-LicenseInfo.setLicenseKey(
-  '0f94d8b65161817ca5d7f7af8ac2f042T1JERVI6TVVJLVN0b3J5Ym9vayxFWFBJUlk9MTY1NDg1ODc1MzU1MCxLRVlWRVJTSU9OPTE='
-)
-
-const debug = Debug('terminal:widgets:Customers')
-
+const debug = Debug('terminal:widgets:CustomerList')
 const CustomerList = (props) => {
   const { block, path, cwd } = props // TODO verify this is a Collection
-  const { blockchain, isPending } = useBlockchain()
+  const { isPending } = useBlockchain()
   const columnsRef = useRef()
   const nextPath = getNextPath(path, cwd)
   const nextProps = { ...props, cwd: nextPath }
@@ -41,9 +28,9 @@ const CustomerList = (props) => {
     for (const c of command) {
       process.stdin.send(c)
     }
-    const newCustomer = await isPending
+    // const newCustomer = await isPending
     // how to learn what customer just got added ?
-    const cd = `cd /crm/customers/bob`
+    // const cd = `cd /crm/customers/bob`
   }
   const addButtonStyle = {
     margin: 0,
@@ -66,14 +53,13 @@ const CustomerList = (props) => {
       let { title = key, description = '' } = properties[key]
       description = description || title
       const renderCell = (params) => {
-        const { row, id, field } = params
+        const { row, field } = params
         const { child } = row
         // need to unmap the field to the nested child
         // need to cache all the blocks so fetching them is very cheap
         // fetch block relating to this child, to get out data
         // show loading screen in meantime
         const childPath = cwd + '/' + child
-        debug(childPath)
         return (
           <CellBlock
             path={childPath}
@@ -87,7 +73,6 @@ const CustomerList = (props) => {
         font: 'Arial',
         fontSize: '14px',
       })
-      debug(`width`, title, width)
       columns.push({
         field: key,
         headerName: title,

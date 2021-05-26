@@ -2,12 +2,9 @@
  * A default component that renders if nothing specified for the object.
  * Renders itself as a list of children, then renders the selected child indented.
  */
-import React, { useEffect, useState } from 'react'
-import { useBlockchain } from '../hooks/useBlockchain'
+import React from 'react'
 import { useBlockstream } from '../hooks/useBlockstream'
 import Debug from 'debug'
-import ReactJson from 'react-json-view'
-import assert from 'assert'
 import { getNextPath } from '../utils'
 
 const debug = Debug('terminal:Explorer')

@@ -3,6 +3,7 @@ import Debug from 'debug'
 import OpenDialog from './OpenDialog'
 
 const debug = Debug('terminal:widgets:About')
+debug(`loaded`)
 
 const About = ({ block, path, cwd }) => {
   const { state } = block

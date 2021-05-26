@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.css'
-import debugFactory from 'debug'
+import Debug from 'debug'
 import Terminal from './Terminal'
 import DUI from './DUI'
 import { useNavigation } from './hooks/useNavigation'
-
-// debugFactory.enable(`*shell *Customer* *Settings *Datum`)
-
+const debug = Debug('terminal:App')
+Debug.enable(`*Customer* *Settings *Datum`)
+debug(`App loaded`)
 function App() {
   useNavigation()
   return (

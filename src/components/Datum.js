@@ -5,14 +5,10 @@ import {
   Card,
   CardHeader,
   CardContent,
-  CardActions,
-  Toolbar,
   IconButton,
-  AppBar,
   Grid,
-  Paper,
 } from '@material-ui/core'
-import { Home, Edit, Cancel, Save } from '@material-ui/icons'
+import { Edit, Cancel, Save } from '@material-ui/icons'
 import { useBlockchain } from '../hooks/useBlockchain'
 import Debug from 'debug'
 const debug = Debug('terminal:widgets:Datum')
@@ -33,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Datum = ({ block }) => {
   const { state } = block
-  const { schema, formData: storedFormData, uiSchema, children } = state
+  const { schema, formData: storedFormData, uiSchema } = state
   const { title, ...noTitleSchema } = schema
   const [liveFormData, setLiveFormData] = useState(storedFormData)
   const { isPending } = useBlockchain()
@@ -45,16 +41,16 @@ const Datum = ({ block }) => {
   const onBlur = (...args) => {
     debug(`onBlur: `, ...args)
   }
-  const setDatum = (formData) => {
-    const string = JSON.stringify(formData)
-    debug(`setDatum`, string)
-    // show an enquiring modal UI over the top to get the data we need
+  // const setDatum = (formData) => {
+  //   const string = JSON.stringify(formData)
+  //   debug(`setDatum`, string)
+  //   // show an enquiring modal UI over the top to get the data we need
 
-    const command = `./set --formData ${string}\n`
-    for (const c of command) {
-      process.stdin.send(c)
-    }
-  }
+  //   const command = `./set --formData ${string}\n`
+  //   for (const c of command) {
+  //     process.stdin.send(c)
+  //   }
+  // }
   const onChange = ({ formData }) => {
     debug(`onChange: `, formData)
     setLiveFormData(formData)

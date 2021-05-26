@@ -7,8 +7,10 @@ import CustomerList from './components/CustomerList'
 import Customer from './components/Customer'
 import About from './components/About'
 import Settings from './components/Settings'
+import Account from './components/Account'
 
 const debug = Debug('terminal:DUI')
+debug(`loaded`)
 /** DYNAMIC UI
  * Walk the full path from the wd and build up the ui by these layers.
  * Use the dpkg to know that we should pull in all staticly defined chains.
@@ -20,7 +22,7 @@ const debug = Debug('terminal:DUI')
  */
 
 const DUI = () => {
-  const { context, latest } = useBlockchain()
+  const { context } = useBlockchain()
   if (!context) {
     return <h3>Blockchain loading....</h3>
   }
@@ -36,6 +38,7 @@ const DUI = () => {
     '/crm/customers/*': Customer,
     '/crm/about': About,
     '/crm/settings': Settings,
+    '/crm/account': Account,
   }
   return (
     <div

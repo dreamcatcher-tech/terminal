@@ -1,10 +1,7 @@
 import React from 'react'
 import Debug from 'debug'
-import { Button } from '@material-ui/core'
 import Explorer from './Explorer'
 import { getNextPath } from '../utils'
-import { useChannel } from '../hooks/useChannel'
-import { useBlockstream } from '../hooks/useBlockstream'
 import { AppBar, Toolbar } from '@material-ui/core'
 import { List, ListItem, ListItemText } from '@material-ui/core'
 import { IconButton } from '@material-ui/core'
@@ -78,7 +75,7 @@ const Nav = (props) => {
             className={classes.navDisplayFlex}
           >
             {navLinks.map(({ title, path }) => (
-              <a
+              <div
                 key={title}
                 className={classes.linkText}
                 onClick={onClick(title)}
@@ -86,7 +83,7 @@ const Nav = (props) => {
                 <ListItem button>
                   <ListItemText primary={title} />
                 </ListItem>
-              </a>
+              </div>
             ))}
           </List>
           <div className={classes.grow} />

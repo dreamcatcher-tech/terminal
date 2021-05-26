@@ -24,8 +24,8 @@ export const useBlockstream = (cwd, slice) => {
   const { blockchain, latest } = useBlockchain()
   const [block, setBlock] = useState()
   const [currentCwd, setCwd] = useState()
-  const segments = getPathSegments(cwd)
   useEffect(() => {
+    const segments = getPathSegments(cwd)
     let active = true
     let unsubscribe = () => (active = false)
     let short
@@ -61,7 +61,7 @@ export const useBlockstream = (cwd, slice) => {
       debug(`teardown`, cwd, short)
       unsubscribe()
     }
-  }, [blockchain, cwd, slice])
+  }, [blockchain, latest, block, cwd, slice]) // TODO rationalize dependencies
   if (cwd !== currentCwd) {
     setBlock()
     setCwd(cwd)
