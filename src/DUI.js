@@ -1,5 +1,5 @@
 import React from 'react'
-import { useBlockchain } from './hooks/useBlockchain'
+import { useBlockchain } from '@dreamcatcher-tech/web-components'
 import Debug from 'debug'
 import Explorer from './components/Explorer'
 import Home from './components/Home'

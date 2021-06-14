@@ -9,7 +9,7 @@ import {
   Grid,
 } from '@material-ui/core'
 import { Edit, Cancel, Save } from '@material-ui/icons'
-import { useBlockchain } from '../hooks/useBlockchain'
+import { useBlockchain } from '@dreamcatcher-tech/web-components'
 import Debug from 'debug'
 const debug = Debug('terminal:widgets:Datum')
 

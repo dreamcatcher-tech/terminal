@@ -5,10 +5,12 @@ import assert from 'assert'
 import Debug from 'debug'
 import Explorer from './Explorer'
 import { getNextPath } from '../utils'
-import { useBlockchain } from '../hooks/useBlockchain'
+import {
+  useBlockchain,
+  useBlockstream,
+} from '@dreamcatcher-tech/web-components'
 import { Fab } from '@material-ui/core'
 import { Add } from '@material-ui/icons'
-import { useBlockstream } from '../hooks/useBlockstream'
 
 const debug = Debug('terminal:widgets:CustomerList')
 const CustomerList = (props) => {

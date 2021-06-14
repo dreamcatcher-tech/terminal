@@ -3,9 +3,9 @@
  * Renders itself as a list of children, then renders the selected child indented.
  */
 import React from 'react'
-import { useBlockstream } from '../hooks/useBlockstream'
+import { useBlockstream } from '@dreamcatcher-tech/web-components'
 import Debug from 'debug'
-import { getNextPath } from '../utils'
+import { getNextPath } from '../utils' // TODO remove this logic
 
 const debug = Debug('terminal:Explorer')
 const Explorer = (props) => {
